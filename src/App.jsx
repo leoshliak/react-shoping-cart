@@ -5,10 +5,11 @@ import { Outlet } from 'react-router-dom'
 
 function App() {
 
+ const [cart, setCart] = useState([])
 
   return (
     <div>
-     <Navbar />
+     <Navbar cart={cart} />
      <div className="container">
      <Outlet />
      </div>

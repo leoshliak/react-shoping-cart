@@ -4,9 +4,29 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: Playfair;
+  src: url("../assets/PlayfairDisplay-SemiBold.ttf");
+}
+
+ @font-face {
+  font-family: Inter;
+  src: url('src/assets/Inter_18pt-Regular.ttf');
+ }
+
 body {
-  font-family: 'poppins', sans-serif; 
+  font-family: Inter, sans-serif; 
   font-size: 18px;
+  scroll-behavior: smooth;
+}
+
+.container {
+  margin: 0 auto;
 }
 
 a {
@@ -23,6 +43,10 @@ header {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem 0;
   width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 50;
 }
 
 .header-container {
@@ -51,21 +75,30 @@ header {
 }
 
 .header-container ul a:hover {
-  color: darkblue;
+  color: #000;
 }
 
 .header-container ul a.active { 
-  color: blue;
+  color: #D4AF37;
 }
 
 .logo {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  font-family: Playfair, sans-serif;
+  gap: 10px;
+  font-size: 1.4rem;
+}
+
+.logo img {
+  width: 70px;
+  height: 60px;
+  cursor: pointer;
 }
 
 .logo h2 {
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 700;
   letter-spacing: 0.4px;
 }
@@ -88,6 +121,8 @@ header {
 .cart img {
   cursor: pointer;
   transition: all 0.3s;
+  width: 45px;
+  height: 45px;
 }
 
 .cart-con:hover {
@@ -104,14 +139,14 @@ header {
 }
 
 .quantity {
-  background-color: red;
+  background-color: #950303;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
-  transform: translate(-40%, -40%);
+  transform: translate(-50%, -50%);
   padding: 2px 6px;
-  font-size: 14px;
+  font-size: 15px;
   transition: all 0.3s;
 }
