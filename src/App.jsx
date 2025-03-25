@@ -1,17 +1,62 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import { Outlet } from 'react-router-dom'
 
 function App() {
+  const [cart, setCart] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [productsQuantity, setProductsQuantity] = useState(0)
+  const [error, setError] = useState(null);
+  
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const categories = [
+          'womens-dresses',
+          'womens-bags',
+          'womens-shoes',
+          'mens-shirts',
+          'mens-watches',
+          'sunglasses',
+        ];
+  
+        const responses = await Promise.all(
+          categories.map(category => 
+            fetch(`https://dummyjson.com/products/category/${category}?limit=30&skip=0`)
+          )
+        );
+  
+        const data = await Promise.all(
+          responses.map(response => {
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            return response.json();
+          })
+        );
 
- const [cart, setCart] = useState([])
+        const allProducts = data.flatMap(category => category.products);
+        console.log(allProducts)
+        setProducts(allProducts);
+        setError(null);
+      } catch (err) {
+        setError(err.message);
+        console.error('Fetch error:', err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+  
+   setTimeout(() => {fetchProducts()}, 500) ;
+  }, []);
 
-  return (
+  //if (isLoading) return <div>Loading luxury items...</div>;
+  if (error) return <div>Error loading products: {error}</div>;
+
+  /*if(!isLoading)*/ return (
     <div>
-     <Navbar cart={cart} />
+     <Navbar cart={cart} productsQuantity={productsQuantity} />
      <div className="container">
-     <Outlet />
+      <Outlet  context={{ products, cart, setCart, setProductsQuantity }} />
      </div>
     </div>
   )

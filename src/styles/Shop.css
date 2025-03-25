@@ -1,0 +1,92 @@
+.shop {
+    width: 100%;
+    height: 100%;
+    margin-top: 80px;
+    display: flex;
+}
+
+.shop h1 {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 3rem;
+}
+
+
+aside {
+    width: 300px;
+    /*background: url('/projects-bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;*/
+    background-color: #f0f0f0;
+    min-height: 88.6vh;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+
+.filter h3 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: #2B2B2B;
+    letter-spacing: 0.4;
+}
+
+.categories {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.categories li {
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    color: #717171;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.categories li.active {
+    color: #D4AF37;
+}
+
+.categories li.active:hover {
+    color: #D4AF37;
+}
+
+.categories li:hover {
+    color: #000;
+}
+
+main {
+    width: 100%;
+    padding: 20px;
+}
+
+main h2 {
+    margin-bottom: 15px;
+    padding-left: 5px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.product-card {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

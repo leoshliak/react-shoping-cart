@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
-const Navbar = ({cart}) => {
- console.log(cart)
+const Navbar = ({cart, productsQuantity}) => {
   return (
     <header>
         <div className="header-container">
@@ -19,7 +18,7 @@ const Navbar = ({cart}) => {
       <div className="cart equal">
         <div className="cart-con">
         <img src="/shopping-cart-reverse.svg" width="40" height="40" />
-        <span style={{display: cart.length > 0 ? 'flex' : 'none'}}  className='quantity'>{cart.length}</span>
+        <span style={{display: productsQuantity > 0 ? 'flex' : 'none'}}  className='quantity'>{productsQuantity}</span>
         </div>
         </div>
       </div>
