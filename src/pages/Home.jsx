@@ -1,11 +1,14 @@
 import React from 'react'
 import '../styles/Home.css'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useOutletContext } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
 
 const navigate = useNavigate();
+  const {products, cart, setCart, setProductsQuantity} = useOutletContext()
+  const targetIndexes = [2, 9, 23];
+  const featuredItems = products.filter((_, index) => targetIndexes.includes(index))
 
   return (
     <>
@@ -58,31 +61,30 @@ const navigate = useNavigate();
     <div className="featured" id='featured'>
       <h2>Featured Items</h2>
       <div className="items">
-        <div className="item">
-          <img src="/logo.png" alt="item" />
+      {featuredItems.map((item) => (
+        <div className="item" key={item.id}>
+          <img src={item.thumbnail} alt="item" />
           <div className="text">
-          <h3 className='title'>Title</h3>
-          <p className="price">52$</p>
-          <button>Add to cart</button></div>
+          <h3 className='title'>{item.title}</h3>
+          <p className="price">{item.price}$</p>
+          <button onClick={() => {
+            const check = cart.find(target => target.title === item.title);
+            setProductsQuantity(prevQuantity => prevQuantity + 1)
+            if(check == undefined) {
+            setCart(prevCart => [...prevCart, {...item, quantity: 1}]);
+          } else {
+            const existingIndex = cart.findIndex(target => target.title === item.title);
+            setCart(prevCart => 
+              prevCart.map((item, index) => ( 
+                index === existingIndex
+                  ? { ...item, quantity: item.quantity + 1 }
+                  : item))
+            );
+          }
+          console.log(cart)
+          }}>Add to cart</button></div>
         </div>
-
-        <div className="item">
-          <img src="/logo.png" alt="item" />
-          <div className="text">
-          <h3 className='title'>Title</h3>
-          <p className="price">52$</p>
-          <button>Add to cart</button></div>
-        </div>
-
-        <div className="item">
-          <img src="/logo.png" alt="item" />
-          <div className="text">
-          <h3 className='title'>Title</h3>
-          <p className="price">52$</p>
-          <button>Add to Cart</button>
-          </div>
-        </div>
-      </div>
+      ))}</div>
     </div>
     <footer>
       <div className="footer-container">

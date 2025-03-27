@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
-const Navbar = ({cart, productsQuantity}) => {
+const Navbar = ({cart, productsQuantity, isCart, setIsCart}) => {
   return (
     <header>
         <div className="header-container">
@@ -16,7 +16,7 @@ const Navbar = ({cart, productsQuantity}) => {
             <NavLink to='/shop'><li>Shop</li></NavLink>
         </ul>
       <div className="cart equal">
-        <div className="cart-con">
+        <div className="cart-con" onClick={() => { setIsCart(true)}}>
         <img src="/shopping-cart-reverse.svg" width="40" height="40" />
         <span style={{display: productsQuantity > 0 ? 'flex' : 'none'}}  className='quantity'>{productsQuantity}</span>
         </div>

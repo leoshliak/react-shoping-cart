@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import { Outlet } from 'react-router-dom'
+import Cart from './components/Cart';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -8,6 +9,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [productsQuantity, setProductsQuantity] = useState(0)
   const [error, setError] = useState(null);
+  const [isCart, setIsCart] = useState(false);
   
   useEffect(() => {
     const fetchProducts = async () => {
@@ -35,6 +37,7 @@ function App() {
         );
 
         const allProducts = data.flatMap(category => category.products);
+        
         console.log(allProducts)
         setProducts(allProducts);
         setError(null);
@@ -54,9 +57,10 @@ function App() {
 
   /*if(!isLoading)*/ return (
     <div>
-     <Navbar cart={cart} productsQuantity={productsQuantity} />
+     <Navbar cart={cart} productsQuantity={productsQuantity} isCart={isCart} setIsCart={setIsCart} />
      <div className="container">
       <Outlet  context={{ products, cart, setCart, setProductsQuantity }} />
+      <Cart cart={cart} setCart={setCart} isCart={isCart} setIsCart={setIsCart} setProductsQuantity={setProductsQuantity} />
      </div>
     </div>
   )

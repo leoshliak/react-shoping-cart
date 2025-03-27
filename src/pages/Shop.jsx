@@ -37,14 +37,15 @@ const Shop = () => {
           </div>
         </aside>
         <main>
-          <h2>{categories.find(c => c.id === currentCategory)?.label || 'All products'}</h2>
+          <div className="top"><h2>{categories.find(c => c.id === currentCategory)?.label || 'All products'}</h2></div>
           <div className="products">
             {currentCategory === 'all' ? 
             products.map((product) => (
               <div className='product-card' key={product.id}>
       <img src={product.thumbnail} alt={product.title} />
+      <div className="rest">
       <h3>{product.title}</h3>
-      <p>{product.price}$</p>
+      <p className='price'>{product.price}$</p>
       <button onClick={() => {
         const check = cart.find(item => item.title === product.title);
         setProductsQuantity(prevQuantity => prevQuantity + 1)
@@ -60,14 +61,15 @@ const Shop = () => {
         );
       }
       console.log(cart)
-      }}>Add to cart</button>
+      }}>Add to cart</button></div>
     </div>
             ))
             : products.filter((product) => (product.category === currentCategory)).map((product) =>(
               <div className='product-card' key={product.id}>
               <img src={product.thumbnail} alt={product.title} />
+              <div className="rest">
               <h3>{product.title}</h3>
-              <p>{product.price}$</p>
+              <p className='price'>{product.price}$</p>
               <button onClick={() => {
                const check = cart.find(item => item.title === product.title);
                setProductsQuantity(prevQuantity => prevQuantity + 1)
@@ -83,7 +85,7 @@ const Shop = () => {
                );
              }
              console.log(cart)
-              }}>Add to cart</button>
+              }}>Add to cart</button></div>
             </div>
             ))}
           </div>

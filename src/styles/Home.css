@@ -246,7 +246,6 @@
   }
 
   .item {
-    height: 450px;
     box-shadow: 0px 0px 20px 3px #0000002e;
     display: flex;
     flex-direction: column;
@@ -259,7 +258,7 @@
 
   .item:hover {
     transform: scale(1.02);
-    box-shadow: 0px 8px 12px 7px #0000002e;;
+    box-shadow: 0px 8px 12px 7px #0000002e;
   }
 
   .item .text {
@@ -268,8 +267,7 @@
     align-items: center;
     padding: 10px;
     text-align: center;
-    gap: 5px;
-    width: 70%;
+    gap: 10px;
     margin-bottom: 3px;
   }
 
@@ -291,7 +289,7 @@
   .item button {
     background-color: #000000;
     color: #fff;
-    padding: 5px 10px;
+    padding: 6px 10px;
     font-size: 1rem;
     border-radius: 6px;
     font-weight: 600;
@@ -300,6 +298,7 @@
     border: 2px solid #000;
     cursor: pointer;
     width: 60%;
+    margin-bottom: 5px;
   }
 
   .item button:hover {
