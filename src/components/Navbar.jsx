@@ -13,7 +13,6 @@ const Navbar = ({cart, productsQuantity, isCart, setIsCart}) => {
             <NavLink to='/shop'><li>Shop</li></NavLink>
             <NavLink to='/about'><li>About us</li></NavLink>
             <NavLink to='/contact'><li>Contact</li></NavLink>
-            <NavLink to='/shop'><li>Shop</li></NavLink>
         </ul>
       <div className="cart equal">
         <div className="cart-con" onClick={() => { setIsCart(true)}}>

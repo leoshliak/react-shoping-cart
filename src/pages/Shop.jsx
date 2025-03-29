@@ -1,10 +1,29 @@
-import React, { useState } from 'react'
+
+import React, { useState, useEffect } from 'react'
 import '../styles/Shop.css'
 import { useOutletContext } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Shop = () => {
   const { products, cart, setCart, setProductsQuantity } = useOutletContext();
   const [currentCategory, setCurrentCategory] = useState('all');
+  const [hoveredProductId, setHoveredProductId] = useState(null);
+  const [loadedHoverImages, setLoadedHoverImages] = useState({});
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (products.length > 0) {
+      products.forEach(product => {
+        // Preload both thumbnail and hover image
+        const hoverImg = new Image();
+        hoverImg.src = product.images[1];
+        hoverImg.onload = () => {
+          setLoadedHoverImages(prev => ({ ...prev, [product.id]: true }));
+        };
+      });
+    }
+  }, [products]);
+
   
   const categories = [
     { id: 'all', label: 'All products' },
@@ -41,8 +60,37 @@ const Shop = () => {
           <div className="products">
             {currentCategory === 'all' ? 
             products.map((product) => (
-              <div className='product-card' key={product.id}>
-      <img src={product.thumbnail} alt={product.title} />
+              <div className='product-card' key={product.id}
+              onMouseEnter={() => setHoveredProductId(product.id)}
+              onMouseLeave={() => setHoveredProductId(null)}
+              onClick={(e) => {
+                if (!e.target.closest('button')) {
+                  navigate(`/shop/${product.id}`, { 
+                    state: { product } 
+                  });
+                }
+              }}
+              >
+      <div className="image-wrapper">
+      <img
+    src={product.thumbnail}
+    alt={product.title}
+    className="main-image"
+    style={{ 
+      opacity: hoveredProductId === product.id ? 0 : 1,
+      transition: 'opacity 0.4s ease-in-out' 
+    }}
+  />
+  <img
+    src={product.images[1]}
+    alt={product.title}
+    className="hover-image"
+    style={{ 
+      opacity: hoveredProductId === product.id && loadedHoverImages[product.id] ? 1 : 0,
+      transition: 'opacity 0.4s ease-in-out' 
+    }}
+  />
+  </div>
       <div className="rest">
       <h3>{product.title}</h3>
       <p className='price'>{product.price}$</p>
@@ -65,8 +113,37 @@ const Shop = () => {
     </div>
             ))
             : products.filter((product) => (product.category === currentCategory)).map((product) =>(
-              <div className='product-card' key={product.id}>
-              <img src={product.thumbnail} alt={product.title} />
+              <div className='product-card' key={product.id}
+              onMouseEnter={() => setHoveredProductId(product.id)}
+              onMouseLeave={() => setHoveredProductId(null)}
+              onClick={(e) => {
+                if (!e.target.closest('button')) {
+                  navigate(`/shop/${product.id}`, { 
+                    state: { product } 
+                  });
+                }
+              }}
+              >
+              <div className="image-wrapper">
+              <img
+    src={product.thumbnail}
+    alt={product.title}
+    className="main-image"
+    style={{ 
+      opacity: hoveredProductId === product.id ? 0 : 1,
+      transition: 'opacity 0.4s ease-in-out' 
+    }}
+  />
+  <img
+    src={product.images[1]}
+    alt={product.title}
+    className="hover-image"
+    style={{ 
+      opacity: hoveredProductId === product.id && loadedHoverImages[product.id] ? 1 : 0,
+      transition: 'opacity 0.4s ease-in-out' 
+    }}
+  />  
+  </div>
               <div className="rest">
               <h3>{product.title}</h3>
               <p className='price'>{product.price}$</p>
