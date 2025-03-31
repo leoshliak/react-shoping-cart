@@ -66,31 +66,29 @@ const Shop = () => {
               onClick={(e) => {
                 if (!e.target.closest('button')) {
                   navigate(`/shop/${product.id}`, { 
-                    state: { product } 
+                    state: { product}
+                  });
+                  window.scrollTo({
+                    top: 0,
+                    behavior: 'auto'
                   });
                 }
               }}
               >
       <div className="image-wrapper">
-      <img
-    src={product.thumbnail}
-    alt={product.title}
-    className="main-image"
-    style={{ 
-      opacity: hoveredProductId === product.id ? 0 : 1,
-      transition: 'opacity 0.4s ease-in-out' 
-    }}
+       <img src={product.thumbnail} alt={product.title} className="main-image"
+         style={{ 
+           opacity: hoveredProductId === product.id ? 0 : 1,
+           transition: 'opacity 0.4s ease-in-out' 
+               }}
   />
-  <img
-    src={product.images[1]}
-    alt={product.title}
-    className="hover-image"
-    style={{ 
-      opacity: hoveredProductId === product.id && loadedHoverImages[product.id] ? 1 : 0,
-      transition: 'opacity 0.4s ease-in-out' 
-    }}
+       <img src={product.images[1]}  alt={product.title} className="hover-image"
+          style={{ 
+          opacity: hoveredProductId === product.id && loadedHoverImages[product.id] ? 1 : 0,
+          transition: 'opacity 0.4s ease-in-out' 
+                }}
   />
-  </div>
+   </div>
       <div className="rest">
       <h3>{product.title}</h3>
       <p className='price'>{product.price}$</p>
@@ -125,23 +123,17 @@ const Shop = () => {
               }}
               >
               <div className="image-wrapper">
-              <img
-    src={product.thumbnail}
-    alt={product.title}
-    className="main-image"
-    style={{ 
-      opacity: hoveredProductId === product.id ? 0 : 1,
-      transition: 'opacity 0.4s ease-in-out' 
-    }}
+              <img src={product.thumbnail} alt={product.title} className="main-image"
+                 style={{ 
+                    opacity: hoveredProductId === product.id ? 0 : 1,
+                    transition: 'opacity 0.4s ease-in-out' 
+                      }}
   />
-  <img
-    src={product.images[1]}
-    alt={product.title}
-    className="hover-image"
-    style={{ 
-      opacity: hoveredProductId === product.id && loadedHoverImages[product.id] ? 1 : 0,
-      transition: 'opacity 0.4s ease-in-out' 
-    }}
+              <img src={product.images[1]} alt={product.title} className="hover-image"
+                 style={{ 
+                    opacity: hoveredProductId === product.id && loadedHoverImages[product.id] ? 1 : 0,
+                    transition: 'opacity 0.4s ease-in-out' 
+                       }}
   />  
   </div>
               <div className="rest">

@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/Home.css'
 import { useNavigate, useOutletContext } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import Footer from '../components/Footer'
 
 const Home = () => {
 
@@ -62,7 +63,17 @@ const navigate = useNavigate();
       <h2>Featured Items</h2>
       <div className="items">
       {featuredItems.map((item) => (
-        <div className="item" key={item.id}>
+        <div className="item" key={item.id}   onClick={(e) => {
+          if (!e.target.closest('button')) {
+            navigate(`/shop/${item.id}`, { 
+              state: { item }
+            });
+            window.scrollTo({
+              top: 0,
+              behavior: 'auto'
+            });
+          }
+        }}>
           <img src={item.thumbnail} alt="item" />
           <div className="text">
           <h3 className='title'>{item.title}</h3>
@@ -86,54 +97,7 @@ const navigate = useNavigate();
         </div>
       ))}</div>
     </div>
-    <footer>
-      <div className="footer-container">
-      <div className="footer-section">
-      <h4>VogueNest</h4>
-      <p>Redefining fashion through timeless elegance and modern sensibility.</p>
-      <div className="social-icons">
-        <a href="#"><i className="fa-brands fa-instagram"></i></a>
-        <a href="#"><i className="fa-brands fa-pinterest"></i></a>
-        <a href="#"><i className="fa-brands fa-facebook"></i></a>
-      </div>
-    </div>
-
-    <div className="footer-section">
-      <h4>Navigation</h4>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href='#inspo'>Discover Style</a></li>
-        <li><a href="#info">Refine  Wardrobe</a></li>
-        <li><a href="#featured">Featured Items</a></li>
-      </ul>
-    </div>
-
-    <div className="footer-section">
-      <h4>Collections</h4>
-      <ul>
-        <li><a href="#">Minimalist Chic</a></li>
-        <li><a href="#">Streetwear Vibes</a></li>
-        <li><a href="#">Classic Elegance</a></li>
-        <li><a href="#">New Arrivals</a></li>
-      </ul>
-    </div>
-
-    <div className="footer-section">
-      <h4>Contact</h4>
-      <p>voguenest@example.com</p>
-      <p>+1 (555) 234-5678</p>
-     <p>Open Daily: 9AM - 6PM EST</p>
-    </div>
-  </div>
-
-  <div className="footer-bottom">
-    <p>&copy; 2025 VogueNest. Crafted with elegance.</p>
-    <div className="legal-links">
-      <a href="#">Privacy Policy</a> | 
-      <a href="#">Terms of Service</a>
-    </div>
-        </div>
-    </footer>
+    <Footer/>
     </>
   )
 }
