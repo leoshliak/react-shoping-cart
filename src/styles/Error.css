@@ -1,0 +1,36 @@
+.error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .error h1 {
+    font-size: 4rem;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+
+  .error p {
+    font-size: 2.3rem;
+    letter-spacing: 0.4px;
+    margin-bottom: 10px;
+  }
+
+  .error button {
+    margin-top: 1.5rem;
+    padding: 0.9rem 2.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    color: white;
+    background-color: #e7bb2a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
