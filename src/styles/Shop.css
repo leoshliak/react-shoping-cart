@@ -87,9 +87,31 @@ main {
     justify-content: space-between;
 }
 
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 10px;
+  border: 2px solid #2d3748;
+  padding: 6px 8px;
+  border-radius: 5px;
+}
+
+.search input {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+}
+
+.no-results {
+    min-width: 600px;
+}
+
 .products {
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 380px));
     gap: 1.5rem;
 }
 
@@ -126,6 +148,7 @@ main {
 .product-card h3 {
    font-size: 1.5rem;
    letter-spacing: 0.4px;
+   text-align: center;
 }
 
 .rest .price {
