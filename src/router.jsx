@@ -4,11 +4,13 @@ import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import NotFound from "./pages/NotFound";
 import ProductPage from "./pages/ProductPage";
+import Error from "./pages/Error";
 
 const routes = [
     {
       path: "/",
       element: <App />,
+      errorElement: <Error />,
       children: [  
         { index: true, element: <Home /> },
         { path: 'shop', element: <Shop />},
