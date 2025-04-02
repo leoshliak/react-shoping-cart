@@ -48,7 +48,7 @@ const ProductPage = () => {
       <div className="review">
         <p className='rating'>{product.rating}</p>
         <Stars number={Math.round(product.rating)} />
-        <i className="fa-regular fa-comment"></i>
+        <a href="#reviews"><i className="fa-regular fa-comment"></i></a>
       </div></div>
       <div className="des-div">
       <p className='des'>{product.description}</p>
@@ -132,7 +132,7 @@ const ProductPage = () => {
 
     <div className="reviews">
   <h2>Reviews</h2>
-  <div className="reviews-con">
+  <div className="reviews-con" id='reviews'>
     {product.reviews?.length > 0 ? (
       product.reviews.map((review, index) => (
         <div className="review-card" key={index}>
