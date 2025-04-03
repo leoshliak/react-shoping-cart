@@ -97,7 +97,7 @@ const navigate = useNavigate();
         </div>
       ))}</div>
     </div>
-    <Footer/>
+    <Footer page={'home'}/>
     </>
   )
 }
