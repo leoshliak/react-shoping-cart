@@ -5,6 +5,7 @@ import Shop from "./pages/Shop";
 import NotFound from "./pages/NotFound";
 import ProductPage from "./pages/ProductPage";
 import Error from "./pages/Error";
+import About from "./pages/About";
 
 const routes = [
     {
@@ -14,6 +15,7 @@ const routes = [
       children: [  
         { index: true, element: <Home /> },
         { path: 'shop', element: <Shop />},
+        {path: 'about', element: <About/>},
         { path: 'shop/:productId', element: <ProductPage /> },
         { path: '*', element: <NotFound /> }  
       ]
