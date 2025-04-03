@@ -1,0 +1,115 @@
+.about-container {
+    margin-top: 80px;
+}
+
+.about-container h1 {
+    text-align: center;
+    padding-top: 1.5rem;
+    font-size: 3rem;
+    color: #2B2B2B;
+    letter-spacing: 0.4px;
+    margin-bottom: 1rem;
+}
+
+.general-info {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+}
+
+
+.general-text p {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+    text-align: center;
+}
+
+
+.specializations {
+    padding: 2.5rem;
+    background: url('/white-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    z-index: 1;
+    position: relative;
+    background-attachment: fixed;
+}
+
+.specializations h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #2b2b2b;
+}
+
+#one .info-text {
+ flex: 2;
+}
+
+#three .info-text,
+#five .info-text {
+    flex: 1.8;
+   }
+
+   .important {
+    max-width: 1300px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+   }
+
+   .important h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #2b2b2b;
+   }
+
+   .important p {
+    font-size: 1.6rem;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    letter-spacing: 0.2px;
+    text-align: center;
+   }
+
+   .important p a {
+      font-weight: 600;
+      transition: all 0.3s;
+   }
+
+   .important p a:hover {
+    color: #2b2b2b;
+    text-decoration: underline;
+   }
+
+   .important .code {
+    margin-top: 1rem;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+   }
+
+   .code a {
+    color: #000;
+    font-size: 2rem;
+   }
+
+   .code a:hover {
+    transform: scale(1.05);
+    text-shadow:  0 0 3px #fff;
+   }
+
