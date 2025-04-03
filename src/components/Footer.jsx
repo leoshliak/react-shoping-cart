@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link, Navigate, NavLink, useNavigate } from 'react-router-dom'
 
-const Footer = () => {
+const Footer = ({page}) => {
+   const navigate = useNavigate();
   return (
     <footer>
       <div className="footer-container">
@@ -14,6 +16,7 @@ const Footer = () => {
       </div>
     </div>
 
+    {page === 'home' ? 
     <div className="footer-section">
       <h4>Navigation</h4>
       <ul>
@@ -22,15 +25,51 @@ const Footer = () => {
         <li><a href="#info">Refine  Wardrobe</a></li>
         <li><a href="#featured">Featured Items</a></li>
       </ul>
-    </div>
-
-    <div className="footer-section">
-      <h4>Collections</h4>
+    </div> : <div className="footer-section">
+      <h4>Lorem, ipsum.</h4>
       <ul>
-        <li><a href="#">Minimalist Chic</a></li>
-        <li><a href="#">Streetwear Vibes</a></li>
-        <li><a href="#">Classic Elegance</a></li>
-        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Lorem, ipsum dolor.</a></li>
+        <li><a href='#'>Lorem, ipsum.</a></li>
+        <li><a href="#">Lorem, ipsum dolor.</a></li>
+        <li><a href="#">Lorem, ipsum.</a></li>
+      </ul>
+    </div>}
+  
+    <div className="footer-section">
+      <h4>Quick Navigation</h4>
+      <ul>
+        <li><a href="#" onClick={(e) => {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: 'auto'
+          });
+          navigate('/')
+        }}>Home page</a></li>
+        <li><a onClick={(e) => {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: 'auto'
+          });
+          navigate('/shop')
+        }} href="#">Shop page</a></li>
+        <li><a onClick={(e) => {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: 'auto'
+          });
+          navigate('/about')
+        }}  href="#">About page</a></li>
+        <li><a onClick={(e) => {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: 'auto'
+          });
+          navigate('/contact')
+        }} href="#">Contact page</a></li>
       </ul>
     </div>
 
