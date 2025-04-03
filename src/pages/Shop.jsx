@@ -1,15 +1,16 @@
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, } from 'react'
 import '../styles/Shop.css'
 import { useOutletContext } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate  } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const Shop = () => {
   const { products, cart, setCart, setProductsQuantity } = useOutletContext();
   const [currentCategory, setCurrentCategory] = useState('all');
   const [hoveredProductId, setHoveredProductId] = useState(null);
   const [loadedHoverImages, setLoadedHoverImages] = useState({});
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('') 
   const navigate = useNavigate();
   const searchResults = products.filter(product => 
     product.title.toLowerCase().includes(search.trim().toLowerCase())
@@ -220,6 +221,7 @@ const Shop = () => {
           </div>
         </main>
     </div>
+    <Footer />
     </>
   )
 }
