@@ -74,7 +74,7 @@ const About = () => {
           <h2>This is not real store</h2>
           <p>This is a fictional store and none of the products displayed here exist.</p>
           <p>Products' information and images: <a href="https://dummyjson.com/docs" target='_blank'>DummyJSON API.</a></p>
-          <p>Other photos on Home page and About page were taken form <a href="https://www.pexels.com/" target='_blank'>Pexels</a> and <a href="https://unsplash.com/" target='_blank'>Unshplash.</a></p>
+          <p>Other photos on this app were taken form <a href="https://www.pexels.com/" target='_blank'>Pexels</a> and <a href="https://unsplash.com/" target='_blank'>Unshplash.</a></p>
           <p className='code'>Code source: <a href="https://github.com/leoshliak/react-shoping-cart" target='_blank'><i class="fa-brands fa-github"></i></a></p>
          </div>
          <Footer />
