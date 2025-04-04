@@ -36,7 +36,7 @@ const Footer = ({page}) => {
     </div>}
   
     <div className="footer-section">
-      <h4>Quick Navigation</h4>
+      <h4>App Navigation</h4>
       <ul>
         <li><a href="#" onClick={(e) => {
           e.preventDefault();
