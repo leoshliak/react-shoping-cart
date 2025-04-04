@@ -99,10 +99,6 @@ const ProductPage = () => {
             setMainImage('');
             setItemQuantity(1);
             setShowMore(false)
-            window.scrollTo({
-              top: 0,
-              behavior: 'auto'
-            });
           }
          }}>
          <img src={item.thumbnail} alt="item" />

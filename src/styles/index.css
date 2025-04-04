@@ -5,7 +5,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
@@ -22,7 +21,6 @@ html {
 body {
   font-family: Inter, sans-serif; 
   font-size: 18px;
-  scroll-behavior: smooth;
 }
 
 .container {

@@ -76,10 +76,6 @@ const Shop = () => {
                   navigate(`/shop/${product.id}`, { 
                     state: { product}
                   });
-                  window.scrollTo({
-                    top: 0,
-                    behavior: 'auto'
-                  });
                 }
               }}
               >
@@ -125,10 +121,6 @@ const Shop = () => {
                 if (!e.target.closest('button')) {
                   navigate(`/shop/${product.id}`, { 
                     state: { product}
-                  });
-                  window.scrollTo({
-                    top: 0,
-                    behavior: 'auto'
                   });
                 }
               }}

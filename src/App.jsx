@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
-import { Outlet } from 'react-router-dom'
+import { Outlet, ScrollRestoration } from 'react-router-dom'
 import Cart from './components/Cart';
 import Footer from './components/Footer';
 
@@ -57,6 +57,8 @@ function App() {
   if (error) return <div>Error loading products: {error}</div>;
 
   /*if(!isLoading)*/ return (
+    <>
+    <ScrollRestoration />
     <div>
      <Navbar cart={cart} productsQuantity={productsQuantity} isCart={isCart} setIsCart={setIsCart} />
      <div className="container">
@@ -64,6 +66,7 @@ function App() {
       <Cart cart={cart} setCart={setCart} isCart={isCart} setIsCart={setIsCart} setProductsQuantity={setProductsQuantity} />
      </div>
     </div>
+    </>
   )
 }
 

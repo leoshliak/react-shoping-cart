@@ -68,10 +68,6 @@ const navigate = useNavigate();
             navigate(`/shop/${item.id}`, { 
               state: { item }
             });
-            window.scrollTo({
-              top: 0,
-              behavior: 'auto'
-            });
           }
         }}>
           <img src={item.thumbnail} alt="item" />
