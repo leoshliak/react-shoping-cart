@@ -170,3 +170,18 @@
     align-self: center;
     gap: 10px;
 }
+
+@media (max-width: 768px) {
+    .cart-component {
+        width: 100%;
+        height: 100svh;
+    }
+    
+    .cart-component.active {
+        left: 0;
+    }
+
+    .cart-component.active body {
+        overflow: hidden;
+    }
+}

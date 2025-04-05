@@ -225,4 +225,51 @@ main {
     opacity: 0;
   }
 
-  
+  @media (max-width: 1111px) {
+    .products {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    
+
+    .products {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 1.5rem;
+    }
+
+
+    .top h2 {
+        padding-left: 5px;
+        letter-spacing: 0.2px;
+        font-size: 1.5rem;
+    }
+
+    .search {
+        gap: 10px;
+        margin-right: 0px;
+        padding: 5px 7px;
+        border-radius: 5px;
+    }
+
+    .search input {
+        font-size: 0.9rem;
+        letter-spacing: 0.2px;
+        max-width: 150px;
+    }
+
+    aside {
+        position: fixed;
+        z-index: 4;
+        min-height: 100vh;
+        width: 260px;
+        left: -100%;
+        transition: all 0.3s ease;
+    }
+
+    aside.active {
+        left: 0;
+    }
+  }

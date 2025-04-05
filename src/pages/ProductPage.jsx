@@ -1,8 +1,7 @@
-// pages/ProductPage.jsx
 import { useParams, useLocation, useOutletContext } from 'react-router-dom';
 import '../styles/ProductPage.css'
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const ProductPage = () => {
   const { productId } = useParams();
@@ -12,11 +11,28 @@ const ProductPage = () => {
   const [itemQuantity, setItemQuantity] = useState(1);
   const [showMore, setShowMore] = useState(false);
    const [mainImage, setMainImage] = useState('');
+   const [imageLoading, setImageLoading] = useState(true);
 
   // Get product from navigation state or find in products array
   const product = state?.product || products.find(p => p.id.toString() === productId);
   const sameCategory = products.filter((item) => item.category === product.category && item.id != productId);
   const sugProducts = sameCategory.filter((_, index) => index < 3 );
+
+  useEffect(() => {
+    if (product) {
+      product.images.forEach(img => {
+        const image = new Image();
+        image.src = img;
+      });
+      
+      sugProducts.forEach(item => {
+        item.images.forEach(img => {
+          const image = new Image();
+          image.src = img;
+        });
+      });
+    }
+  }, [product, sugProducts]);
 
   const Stars = ({number}) => {
     const starArray = []
@@ -37,10 +53,25 @@ const ProductPage = () => {
         
         <div className="img-options">
         {product.images.map((img, index) => (
-          <img  key={index} className={img === mainImage || mainImage === '' && index === 0 ? 'active' : ''} src={img} alt={`${product.title} - ${index + 1}`} onClick={() => setMainImage(img)} />
+          <img  key={index} className={img === mainImage || mainImage === '' && index === 0 ? 'active' : ''}
+           src={img} alt={`${product.title} - ${index + 1}`} onClick={() => {
+            setImageLoading(true)
+            setMainImage(img)
+          }}
+          loading='lazy' />
         ))}
         </div>
-        <div className="show-image"><img src={mainImage === '' ? product.images[0] : mainImage} alt=""  /></div>
+        <div className="show-image">
+  {imageLoading && <div className="image-loader">Loading...</div>}
+  <img 
+    src={mainImage === '' ? product.images[0] : mainImage} 
+    alt=""  
+    onLoad={() => setImageLoading(false)}
+    onError={() => setImageLoading(false)}
+    style={{ opacity: imageLoading ? 0 : 1 }}
+    key={product.id} // Force re-render on product change
+  />
+</div>
       </div>
       <div className="product-info">
       <h1>{product.title}</h1>
@@ -93,10 +124,10 @@ const ProductPage = () => {
         {sugProducts.map((item) => (
          <div className="sug-item" key={item.id} onClick={(e) => {
           if (!e.target.closest('button')) {
+            setMainImage(item.images[0]);
             navigate(`/shop/${item.id}`, { 
               state: { item }
             });
-            setMainImage('');
             setItemQuantity(1);
             setShowMore(false)
           }

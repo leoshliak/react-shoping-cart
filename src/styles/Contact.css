@@ -114,6 +114,11 @@
     border-color: #90cdf4;
     box-shadow: 0 0 0 3px rgba(144, 205, 244, 0.2);
   }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 200px;
+  }
   
   .submit-btn {
     background-color: #2b2b2b;

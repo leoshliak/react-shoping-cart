@@ -15,7 +15,10 @@ const Cart = ({cart, setCart, isCart, setIsCart, setProductsQuantity}) => {
   
   return (
     <div className={isCart ? 'cart-component active' : 'cart-component'}>
-    <div className="cart-top"><h2>Cart</h2><i className="fa-solid fa-xmark" onClick={() => setIsCart(false)}></i></div>
+    <div className="cart-top"><h2>Cart</h2><i className="fa-solid fa-xmark" onClick={() => {
+      setIsCart(false)
+       document.body.style.overflow = 'auto';
+      }}></i></div>
     <div className="cart-container">
     <div className="cart-list">
   {cart.map((item, index) => (
@@ -54,7 +57,7 @@ const Cart = ({cart, setCart, isCart, setIsCart, setProductsQuantity}) => {
         <div className="total"><p>Total: <span>{total.toFixed(2)}$</span></p></div>
         <div className="buttons">
         <div className="checkout"><button>checkout</button></div>
-        <div className="clear"><i class="fa-solid fa-trash-can" onClick={() => {
+        <div className="clear"><i className="fa-solid fa-trash-can" onClick={() => {
            setCart([])
            setProductsQuantity(0)}}></i></div>    
         </div>

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, } from 'react'
 import '../styles/Shop.css'
 import { useOutletContext } from 'react-router-dom';
@@ -6,7 +5,7 @@ import { useNavigate  } from 'react-router-dom';
 import Footer from '../components/Footer';
 
 const Shop = () => {
-  const { products, cart, setCart, setProductsQuantity } = useOutletContext();
+  const { products, cart, setCart, setProductsQuantity, isActive, setIsActive } = useOutletContext();
   const [currentCategory, setCurrentCategory] = useState('all');
   const [hoveredProductId, setHoveredProductId] = useState(null);
   const [loadedHoverImages, setLoadedHoverImages] = useState({});
@@ -47,7 +46,7 @@ const Shop = () => {
   return (
     <>
     <div className='shop'>
-        <aside>
+        <aside className={`${isActive ? 'active' : ''}`}>
           <div className="filter">
             <h3>Categories</h3>
             <ul className="categories">
@@ -62,7 +61,7 @@ const Shop = () => {
         </aside>
         <main>
           <div className="top"><h2>{categories.find(c => c.id === currentCategory)?.label || 'All products'}
-            </h2>{currentCategory ==='all' ? <div className="search"><i class="fa-solid fa-magnifying-glass"></i><input type="search" onChange={(e) => {setSearch(e.target.value)
+            </h2>{currentCategory ==='all' ? <div className="search"><i className="fa-solid fa-magnifying-glass"></i><input type="search" onChange={(e) => {setSearch(e.target.value)
               console.log(searchResults)
             }} value={search} /></div> : ''}</div>
           <div className="products">

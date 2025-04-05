@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import { Outlet, ScrollRestoration } from 'react-router-dom'
 import Cart from './components/Cart';
 import Footer from './components/Footer';
+import Loading from './components/Loading';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -11,6 +12,7 @@ function App() {
   const [productsQuantity, setProductsQuantity] = useState(0)
   const [error, setError] = useState(null);
   const [isCart, setIsCart] = useState(false);
+  const [isActive, setIsActive] = useState(false);
   
   useEffect(() => {
     const fetchProducts = async () => {
@@ -53,16 +55,16 @@ function App() {
    setTimeout(() => {fetchProducts()}, 500) ;
   }, []);
 
-  //if (isLoading) return <div>Loading luxury items...</div>;
-  if (error) return <div>Error loading products: {error}</div>;
+  if (isLoading) return <Loading />;
+  if (error) return <Error />;
 
-  /*if(!isLoading)*/ return (
+  if(!isLoading) return (
     <>
     <ScrollRestoration />
     <div>
-     <Navbar cart={cart} productsQuantity={productsQuantity} isCart={isCart} setIsCart={setIsCart} />
+     <Navbar cart={cart} productsQuantity={productsQuantity} isCart={isCart} setIsCart={setIsCart} isActive={isActive} setIsActive={setIsActive} />
      <div className="container">
-      <Outlet  context={{ products, cart, setCart, setProductsQuantity }} />
+      <Outlet  context={{ products, cart, setCart, setProductsQuantity, isActive, setIsActive }} />
       <Cart cart={cart} setCart={setCart} isCart={isCart} setIsCart={setIsCart} setProductsQuantity={setProductsQuantity} />
      </div>
     </div>

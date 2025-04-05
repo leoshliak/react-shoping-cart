@@ -113,3 +113,57 @@
     text-shadow:  0 0 3px #fff;
    }
 
+   @media (max-width: 768px) {
+    .about-container h1 {
+        font-size: 2.5rem;
+    }
+
+    .general-text p {
+        font-size: 1.2rem;
+    }
+
+    .specializations h2 {
+        font-size: 2.5rem;
+    }
+
+    .important h2 {
+        font-size: 2rem;
+    }
+
+    .important p {
+        font-size: 1.2rem;
+        line-height: 1.4;
+    }
+    .important .code {
+        font-size: 1.3rem;
+        gap: 10px;
+        margin-bottom: 0;
+    }
+
+    .general-text {
+        padding: 0 1.5rem;
+    }
+    .inspo-images {
+        padding: 0 1.5rem;
+    }
+    
+    .specializations {
+        padding: 1rem 1.2rem;
+    }
+
+    .info-text h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #2d3748;
+    }
+
+    .info:nth-child(2),
+    .info:nth-child(4), .info:nth-child(6) {
+        flex-direction: column-reverse;
+    }
+
+    .important {
+        padding: 1.5rem 2rem;
+    }
+   }
+
