@@ -31,6 +31,15 @@
     font-size: 2.7rem;
     font-weight: 700;
     letter-spacing: 0.4px;
+    transform: translate(0px, 120%);
+    opacity: 0;
+    transition: all 0.8s ease;
+    margin-bottom: 20px;
+}
+
+.home-text h1.s-active {
+  transform: translate(0px, 0px);
+  opacity: 1;
 }
 
 .home-text p {
@@ -38,6 +47,14 @@
     margin-top: 1rem;
     line-height: 1.5;
     letter-spacing: 0.2px;
+    transform: translate(0px, 120%);
+    opacity: 0;
+    transition: all 0.8s ease 0.5s;
+}
+
+.home-text p.s-active {
+  transform: translate(0px, 0px);
+  opacity: 1;
 }
 
 .home-text button {
@@ -51,11 +68,34 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transform: translate(0, 120%);
+    opacity: 0;
+    transition: all 0.8s ease 0.8s;
+}
+
+.anim-items.s-active {
+  animation: fadeInUp 0.6s ease-out forwards !important;
+}
+
+.home-text button.s-active {
+  transform: translate(0, 0);
+  opacity: 1;
 }
 
 .home-text button:hover {
+  transition: all 0.3s ease;
     background-color: #bb9b33;
+}
+
+@keyframes cta-anim {
+    0% {
+      transform: translate(0, 120%);
+        opacity: 0;
+    }
+    100% {
+      transform: translate(0, 0);
+        opacity: 1;
+    }
 }
 
 .fashion-inspo {
@@ -90,6 +130,14 @@
   text-align: center;
   margin-bottom: 2rem;
   color: #2b2b2b;
+  transition: all 0.8s ease;
+  transform: translate(0, 120%); 
+  opacity: 0;
+}
+
+.fashion-inspo h2.s-active {
+  transform: translate(0, 0);
+  opacity: 1;
 }
 
 .inspo-text p {
@@ -100,6 +148,14 @@
   letter-spacing: 0.2px;
   width: 90%;
   text-align: center;
+  transition: all 0.8s ease 0.3s;
+  transform: translate(0, 120%); 
+  opacity: 0;
+}
+
+.inspo-text p.s-active {
+  transform: translate(0, 0);
+  opacity: 1;
 }
 
 .inspo-text button {
@@ -131,6 +187,14 @@
   height: 400px;
   width: 100%;
   overflow: hidden;
+  opacity: 0.4;
+  transform: translate(0px, 25%);
+  transition: all 1.2s 0.2s;
+}
+
+ .img-div.s-active {
+  opacity: 1;
+  transform: translate(0, 0);
 }
 
 .img-div img {
@@ -162,6 +226,14 @@
     text-align: center;
     margin-bottom: 2rem;
     color: #2b2b2b;
+    transition: all 0.8s ease;
+    transform: translate(0, 120%);
+    opacity: 0;
+}
+
+.some-info h2.s-active {
+  transform: translate(0, 0);
+  opacity: 1;
 }
 
 .info-con {
@@ -181,7 +253,24 @@
     display: flex;
     gap: 4rem;
     align-items: center;
-    
+    opacity: 0;
+    transition: all 1.2s ease;
+  }
+
+  .info:nth-child(1), 
+  .info:nth-child(3) {
+    transform: translate(-110%, 0);
+  }
+
+
+  .info:nth-child(2) {
+    transform: translate(110%, 0);
+  }
+
+
+  .info.s-active {
+    transform: translate(0, 0);
+    opacity: 1;
   }
   
   .info-text {
@@ -235,6 +324,14 @@
     text-align: center;
     margin-bottom: 2.5rem;
     color: #2b2b2b;
+    transition: all 0.8s ease;
+    opacity: 0;
+    transform: translate(0, 120%);
+  }
+
+  .featured h2.s-active {
+    transform: translate(0, 0);
+    opacity: 1;
   }
 
   .items {
@@ -253,10 +350,30 @@
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.5s ease;
+    opacity: 0;
+  }
+
+  .item:nth-child(1) {
+    transform: translate(-100%, 0px);
+}
+
+.item:nth-child(2) {
+  transform: scale(0.3);
+}
+
+.item:nth-child(3) {
+  transform: translate(100%, 0px);
+}
+
+  .item.s-active {
+    transform: translate(0, 0);
+    transform: scale(1);
+    opacity: 1;
   }
 
   .item:hover {
+    transition: all 0.4s;
     transform: scale(1.02);
     box-shadow: 0px 8px 12px 7px #0000002e;
   }
@@ -495,5 +612,76 @@
 
   .footer-section:nth-child(2) {
     align-items: normal;
+}
+}
+
+@media (max-width: 430px) {
+    .home-text h1 {
+        font-size: 2rem;
+    }
+
+    .home-text p {
+        font-size: 0.9rem;
+    }
+
+    .home-text button {
+        font-size: 0.9rem;
+    }
+
+    .fashion-inspo h2 {
+        font-size: 2rem;
+    }
+
+    .inspo-text p {
+        font-size: 1rem;
+    }
+
+
+    .some-info h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .info-con {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 0;
+    }
+
+    .info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .info:nth-child(2) {
+        flex-direction: column-reverse;
+    }
+
+    .info-img {
+        width: 100%;
+        height: auto;
+    }
+
+    footer {
+        padding: 30px 0 15px;
+    }
+
+    .footer-section p {
+      line-height: 1.5;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      word-break: break-all;
+  }
+
+  .footer-section h4 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    letter-spacing: 0.3px;
+}
+
+.footer-section ul li {
+  margin-bottom: 20px;
+  font-size: 0.9rem;
 }
 }

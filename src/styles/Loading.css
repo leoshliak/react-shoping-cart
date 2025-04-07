@@ -9,7 +9,7 @@
     display: grid;
     place-content: center;
     justify-items: center;
-    transition: all 0.25s;
+    transition: all 0.3s;
   }
   
   .preload > * {

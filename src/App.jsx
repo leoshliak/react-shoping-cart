@@ -2,14 +2,28 @@ import React, { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import { Outlet, ScrollRestoration } from 'react-router-dom'
 import Cart from './components/Cart';
-import Footer from './components/Footer';
 import Loading from './components/Loading';
 
 function App() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    try {
+      const savedCart = localStorage.getItem('cart');
+      return savedCart ? JSON.parse(savedCart) : [];
+    } catch (error) {
+      console.error('Error loading cart:', error);
+      return [];
+    }
+  });
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [productsQuantity, setProductsQuantity] = useState(0)
+  const [productsQuantity, setProductsQuantity] = useState(() => {
+    try {
+      const savedCart = localStorage.getItem('cart');
+      return savedCart ? JSON.parse(savedCart).reduce((acc, item) => acc + item.quantity, 0) : 0;
+    } catch {
+      return 0;
+    }
+  });
   const [error, setError] = useState(null);
   const [isCart, setIsCart] = useState(false);
   const [isActive, setIsActive] = useState(false);
@@ -54,6 +68,16 @@ function App() {
   
    setTimeout(() => {fetchProducts()}, 500) ;
   }, []);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('cart', JSON.stringify(cart));
+      const quantity = cart.reduce((acc, item) => acc + item.quantity, 0);
+      setProductsQuantity(quantity);
+    } catch (error) {
+      console.error('Error saving cart:', error);
+    }
+  }, [cart]);
 
   if (isLoading) return <Loading />;
   if (error) return <Error />;

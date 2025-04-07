@@ -47,14 +47,15 @@ const ProductPage = () => {
 
   return (
     <div className="product-page">
-      <i class="fa-solid fa-arrow-left" onClick={() => navigate('/shop')}></i>
+      <i className="fa-solid fa-arrow-left" onClick={() => navigate('/shop')}></i>
       <div className="container">
       <div className="gallery">
         
         <div className="img-options">
         {product.images.map((img, index) => (
           <img  key={index} className={img === mainImage || mainImage === '' && index === 0 ? 'active' : ''}
-           src={img} alt={`${product.title} - ${index + 1}`} onClick={() => {
+           src={img} alt={`${product.title} - ${index + 1}`} onClick={(e) => {
+            if(e.target.classList.contains('active')) return;
             setImageLoading(true)
             setMainImage(img)
           }}
@@ -98,24 +99,25 @@ const ProductPage = () => {
     {showMore ? 'Show less' : 'Show more'}
   </span>
       </div>
-      <div class="product-amount">{itemQuantity <= 1 ? <button disabled>-</button> :  <button onClick={() => {setItemQuantity(prev => prev - 1)}}>-</button>}
-      <input type='number' min={1} value={itemQuantity} onChange={(e) => {setItemQuantity(e.target.value)}} class="count"></input>
+      <div className="product-amount">{itemQuantity <= 1 ? <button disabled>-</button> :  <button onClick={() => {setItemQuantity(prev => prev - 1)}}>-</button>}
+      <input type='number' min={1} value={itemQuantity} onChange={(e) => {setItemQuantity(e.target.value)}} className="count"></input>
       <button onClick={() => {setItemQuantity(prev => prev + 1)}}>+</button></div>
-     <button className='product-add' onClick={() => {
-        const check = cart.find(item => item.title === product.title);
-        setProductsQuantity(prevQuantity => prevQuantity + itemQuantity)
-        if(check == undefined) {
-          setCart(prevCart => [...prevCart, {...product, quantity: itemQuantity}]);
-        } else {
-          const existingIndex = cart.findIndex(item => item.title === product.title);
-          setCart(prevCart => 
-            prevCart.map((item, index) => ( 
-              index === existingIndex
-                ? { ...item, quantity: item.quantity + 1 }
-                : item))
-          );
-        }
-      }}>Add to Cart</button>
+      <button className='product-add' onClick={() => {
+  const checkIndex = cart.findIndex(item => item.id === product.id); 
+  setProductsQuantity(prev => prev + itemQuantity);
+  if (checkIndex === -1) {
+    setCart(prevCart => [...prevCart, { 
+      ...product, 
+      quantity: itemQuantity 
+    }]);
+  } else {
+    setCart(prevCart => 
+      prevCart.map((item, index) => 
+        index === checkIndex
+          ? { ...item, quantity: item.quantity + itemQuantity }
+          : item
+      ));}
+}}>Add to Cart</button>
       </div>
     </div>
     <div className="suggestions">

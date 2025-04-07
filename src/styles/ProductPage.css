@@ -1,5 +1,5 @@
 .product-page {
-    margin-top: 12vh;
+    margin-top: 80px;
     padding: 2rem;
     background-color: #fffffb;
     z-index: 1;
@@ -390,7 +390,104 @@
   }
   
   /* Responsive design */
+
+@media (min-width: 768px) and (max-width: 1200px) {
+
+    .product-page .container {
+     
+      align-items: center;
+      gap: 20px;
+    }
+
+    .gallery {
+      width: 60%;
+      flex-direction: column-reverse;
+      gap: 20px;
+      height: auto;
+    }
+
+    .img-options {
+      display: flex;
+      align-self: center;
+      gap: 15px;
+      flex-direction: row;
+      height: auto;
+    }
+
+    .img-options img {
+      width: 90px;
+    }
+  
+    .fa-arrow-left {
+      margin-bottom: 15px;
+    }
+}
+
   @media (max-width: 768px) {
+   
+    .product-page {
+      padding: 1.8rem;
+    }
+
+    .product-page .container {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .gallery {
+      width: 100%;
+      flex-direction: column-reverse;
+      gap: 20px;
+      height: auto;
+  }
+
+  .img-options {
+    display: flex;
+    align-self: center;
+    gap: 15px;
+    flex-direction: row;
+    height: auto;
+}
+
+.img-options img {
+  width: 80px;
+}
+
+.fa-arrow-left {
+  display: none;
+}
+
+.product-info {
+  width: 100%;
+  padding-left: 0px;
+}
+
+.product-info h1 {
+  letter-spacing: 0.4px;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.suggestions h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.reviews {
+  margin-top: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+.reviews-con {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 0rem;
+}
+
     .review-header {
       flex-direction: column;
       gap: 0.5rem;
@@ -403,5 +500,76 @@
     
     .reviews h2 {
       font-size: 2rem;
+      margin-bottom: 1rem;
     }
+
+    .price-review{
+      width: 100%;
+      padding-left: 0;
+      margin-bottom: 1.5rem;
+      padding-bottom: 10px;
+    }
+
+    .suggestions {
+      margin-top: 2.5rem;
+      padding-bottom: 0.5rem;
+  }
+  }
+
+  @media (max-width: 430px) {
+    .product-page {
+      padding: 1.3rem;
+    }
+
+
+
+    .product-page .container {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      padding-bottom: 0;
+    }
+
+    .gallery {
+      width: 100%;
+      flex-direction: column-reverse;
+      gap: 20px;
+      height: auto;
+    }
+    
+    .sug-items {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+  }
+
+  .price-text, .review .rating, .review .stars {
+    font-size: 1.25rem;
+    letter-spacing: 0.2px;
+}
+
+.review i {
+  font-size: 1.4rem;
+}
+
+
+.des-div {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.des-div .more-less {
+  font-size: 1.25rem;
+}
+
+.product-amount {
+  margin-bottom: 0.8rem;
+}
+
+.product-add {
+  width: 75%;
+  padding: 11px 18px;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
   }

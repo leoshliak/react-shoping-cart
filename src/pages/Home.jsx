@@ -1,8 +1,9 @@
-import React from 'react'
+import {React, useEffect} from 'react'
 import '../styles/Home.css'
 import { useNavigate, useOutletContext } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Footer from '../components/Footer'
+import useScrollAnimation from '../components/useScrollAnimation'
 
 const Home = () => {
 
@@ -11,38 +12,47 @@ const navigate = useNavigate();
   const targetIndexes = [2, 9, 23];
   const featuredItems = products.filter((_, index) => targetIndexes.includes(index))
 
+  useScrollAnimation();
+
+  useEffect(() => {
+    const handleBeforeUnload = () => sessionStorage.removeItem('animations-played');
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }, []);
+
+
   return (
     <>
     <div className='home' id='home'>
       <div className="home-text">
-        <h1>Elevate Your Style, Define Your Look</h1>
-        <p>Discover the latest fashion trends and timeless accessories that bring out the best in you. Step into confidence with VogueNest.</p>
-        <button onClick={() => navigate('/shop')}>Shop Now</button>
+        <h1 className='anim-items no-hide'>Elevate Your Style, Define Your Look</h1>
+        <p className='anim-items no-hide'>Discover the latest fashion trends and timeless accessories that bring out the best in you. Step into confidence with VogueNest.</p>
+        <button className='anim-items no-hide' onClick={() => navigate('/shop')}>Shop Now</button>
         </div>
     </div>
     <div className="fashion-inspo" id='inspo'>
-      <h2>Discover Your Signature Look</h2>
+      <h2 className='anim-items no-hide'>Discover Your Signature Look</h2>
       <div className="inspo-con">
   <div className="inspo-text">
-    <p>Style is more than just clothing—it's an expression of who you are. Explore curated fashion inspirations that bring confidence and elegance to your everyday life.</p>
+    <p className='anim-items no-hide'>Style is more than just clothing—it's an expression of who you are. Explore curated fashion inspirations that bring confidence and elegance to your everyday life.</p>
   </div>
   <div className="inspo-images">
-    <div className="img-div"><img src="/minimalistic_chic.jpg" alt="Minimalist Chic" /></div>
-    <div className="img-div"><img src="/street.jpg" alt="Streetwear Vibes" /></div>
-    <div className="img-div"><img src="/elegancy.jpg" alt="Classic Elegance" /></div>
+    <div className="img-div anim-items no-hide" ><img src="/minimalistic_chic.jpg" alt="Minimalist Chic" /></div>
+    <div className="img-div anim-items no-hide"><img src="/street.jpg" alt="Streetwear Vibes" /></div>
+    <div className="img-div anim-items no-hide"><img src="/elegancy.jpg" alt="Classic Elegance" /></div>
   </div></div>
 </div>
       <div className="some-info" id='info'>
-        <h2>Refine Your Wardrobe</h2>
+        <h2 className='anim-items no-hide'>Refine Your Wardrobe</h2>
         <div className="info-con">
-          <div className="info">
+          <div className="info anim-items no-hide">
             <div className="info-text">
             <h3>Fashion That Speaks for You</h3>
             <p>Every outfit tells a story. Whether you're aiming for effortless chic or bold statements, VogueNest brings you fashion that resonates with your personality. Choose from our curated collection of timeless pieces and trend-setting styles.</p>
             </div>
             <div className="info-img"><img src="/pexels-eliasdecarvalho-1006994.jpg" alt="" /></div>
           </div>
-          <div className="info">
+          <div className="info anim-items no-hide">
             <div className="info-img"><img src="/bg.webp" alt="" /></div>
             <div className="info-text">
              <h3>Designed for Elegance, Crafted for Comfort</h3>
@@ -50,7 +60,7 @@ const navigate = useNavigate();
             </div>
           </div>
 
-          <div className="info">
+          <div className="info anim-items no-hide">
             <div className="info-text">
             <h3>Dress with Confidence, Walk with Power</h3>
             <p>Great fashion is about more than looking good—it's about feeling unstoppable. Whether you're dressing for a special occasion or daily elegance, VogueNest helps you step out in style and self-assurance.</p>
@@ -60,10 +70,10 @@ const navigate = useNavigate();
         </div>
       </div>
     <div className="featured" id='featured'>
-      <h2>Featured Items</h2>
+      <h2 className='anim-items no-hide'>Featured Items</h2>
       <div className="items">
       {featuredItems.map((item) => (
-        <div className="item" key={item.id}   onClick={(e) => {
+        <div className="item anim-items no-hide" key={item.id}   onClick={(e) => {
           if (!e.target.closest('button')) {
             navigate(`/shop/${item.id}`, { 
               state: { item }
