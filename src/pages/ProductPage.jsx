@@ -65,6 +65,7 @@ const ProductPage = () => {
         <div className="show-image">
   {imageLoading && <div className="image-loader">Loading...</div>}
   <img 
+   data-testid="main-image"
     src={mainImage === '' ? product.images[0] : mainImage} 
     alt=""  
     onLoad={() => setImageLoading(false)}
@@ -100,7 +101,8 @@ const ProductPage = () => {
   </span>
       </div>
       <div className="product-amount">{itemQuantity <= 1 ? <button disabled>-</button> :  <button onClick={() => {setItemQuantity(prev => prev - 1)}}>-</button>}
-      <input type='number' min={1} value={itemQuantity} onChange={(e) => {setItemQuantity(e.target.value)}} className="count"></input>
+      <input data-testid="quantity-input" type='number' min={1} value={itemQuantity} 
+      onChange={(e) => {setItemQuantity(e.target.value)}} className="count"></input>
       <button onClick={() => {setItemQuantity(prev => prev + 1)}}>+</button></div>
       <button className='product-add' onClick={() => {
   const checkIndex = cart.findIndex(item => item.id === product.id); 

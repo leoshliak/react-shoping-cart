@@ -23,7 +23,7 @@ const Cart = ({ cart, setCart, isCart, setIsCart, setProductsQuantity }) => {
   };
   
   return (
-    <div className={isCart ? 'cart-component active' : 'cart-component'}>
+    <div data-testid="cart" className={isCart ? 'cart-component active' : 'cart-component'}>
       <div className="cart-top">
         <h2>Cart</h2>
         <i className="fa-solid fa-xmark" onClick={() => {

@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import { Outlet, ScrollRestoration } from 'react-router-dom'
 import Cart from './components/Cart';
 import Loading from './components/Loading';
+import Error from './pages/Error';
 
 function App() {
   const [cart, setCart] = useState(() => {
@@ -65,8 +66,10 @@ function App() {
         setIsLoading(false);
       }
     };
+
+    const timer = setTimeout(fetchProducts, 500);
   
-   setTimeout(() => {fetchProducts()}, 500) ;
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -80,7 +83,7 @@ function App() {
   }, [cart]);
 
   if (isLoading) return <Loading />;
-  if (error) return <Error />;
+  if (error) return <Error error={error} />;
 
   if(!isLoading) return (
     <>

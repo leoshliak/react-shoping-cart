@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`App.jsx > renders and matches snapshot 1`] = `
+<div>
+  <div>
+    Loading
+  </div>
+</div>
+`;
+
+exports[`App.jsx > should render and match snapshot 1`] = `
+<div>
+  <div>
+    <div
+      class="preload"
+      data-preload="true"
+    >
+      <div
+        class="circle"
+      />
+      <div
+        class="preload-text"
+      >
+        Loading
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`group > should 1`] = `
+<div>
+  <div>
+    <div
+      class="preload"
+      data-preload="true"
+    >
+      <div
+        class="circle"
+      />
+      <div
+        class="preload-text"
+      >
+        Loading
+      </div>
+    </div>
+  </div>
+</div>
+`;

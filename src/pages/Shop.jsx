@@ -47,6 +47,13 @@ const Shop = () => {
     <>
     <div className='shop'>
         <aside className={`${isActive ? 'active' : ''}`}>
+          <button 
+            data-testid="menu-icon" 
+            className="menu-icon"
+            onClick={() => setIsActive(true)}
+          >
+            <i className="fa-solid fa-bars"></i>
+          </button>
           <div className="filter">
             <h3>Categories</h3>
             <ul className="categories">
@@ -61,11 +68,12 @@ const Shop = () => {
         </aside>
         <main>
           <div className="top"><h2>{categories.find(c => c.id === currentCategory)?.label || 'All products'}
-            </h2>{currentCategory ==='all' ? <div className="search"><i className="fa-solid fa-magnifying-glass"></i><input type="search" onChange={(e) => {setSearch(e.target.value)
+            </h2>{currentCategory ==='all' ? <div className="search"><i className="fa-solid fa-magnifying-glass"></i><input data-testid="search-input"
+             type="search" onChange={(e) => {setSearch(e.target.value)
               console.log(searchResults)
             }} value={search} /></div> : ''}</div>
           <div className="products">
-            {currentCategory === 'all' && searchResults === '' ? 
+            {currentCategory === 'all' && search === '' ? 
             (products.map((product) => (
               <div className='product-card' key={product.id}
               onMouseEnter={() => setHoveredProductId(product.id)}

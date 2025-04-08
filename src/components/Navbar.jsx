@@ -5,7 +5,7 @@ const Navbar = ({cart, productsQuantity, isCart, setIsCart, isActive, setIsActiv
   return (
     <header>
         <div className="header-container">
-          <div onClick={() => setIsActive(!isActive)} className={`menu-icon ${isActive ? 'active' : ''}`}>
+          <div onClick={() => setIsActive(!isActive)} className={`menu-icon ${isActive ? 'active' : ''}`} role="button" aria-label="menu">
             <span></span>
           </div>
         <div className="logo equal">
@@ -20,11 +20,11 @@ const Navbar = ({cart, productsQuantity, isCart, setIsCart, isActive, setIsActiv
         </ul>
         </nav>
       <div className="cart equal">
-        <div className="cart-con" onClick={() => { 
+        <div role='button' aria-hidden="true" className="cart-con" onClick={() => { 
           setIsCart(true)
           document.body.style.overflow = 'hidden';
           }}>
-        <img src="/shopping-cart-reverse.svg" width="40" height="40" />
+        <img src="/shopping-cart-reverse.svg" width="40" height="40" role="img" alt="cart" />
         <span style={{display: productsQuantity > 0 ? 'flex' : 'none'}}  className='quantity'>{productsQuantity}</span>
         </div>
         </div>

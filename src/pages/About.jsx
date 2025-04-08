@@ -21,9 +21,9 @@ const About = () => {
           <p className='anim-items no-hide'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, quisquam, maxime aliquid eveniet aperiam nostrum culpa dolorem reprehenderit vero totam provident odit sed, aspernatur libero illo ullam et. Similique odio accusamus sapiente consequuntur sint molestias. Vel maxime, voluptatibus, itaque optio omnis laudantium veritatis alias rem voluptate fugiat, dolor tempora libero.</p>
           </div>
           <div className="inspo-images">
-            <div class="about-img-div anim-items no-hide"><img alt="Minimalist Chic" src="/minimalistic_chic.jpg" /></div>
-            <div class="about-img-div anim-items no-hide"><img alt="Streetwear Vibes" src="/street.jpg" /></div>
-            <div class="about-img-div anim-items no-hide"><img alt="Classic Elegance" src="/elegancy.jpg" /></div></div>
+            <div className="about-img-div anim-items no-hide"><img alt="Minimalist Chic" src="/minimalistic_chic.jpg" /></div>
+            <div className="about-img-div anim-items no-hide"><img alt="Streetwear Vibes" src="/street.jpg" /></div>
+            <div className="about-img-div anim-items no-hide"><img alt="Classic Elegance" src="/elegancy.jpg" /></div></div>
          </div>
           <div className="specializations">
             <h2 className='anim-items no-hide'>Our Specialization</h2>
@@ -88,7 +88,7 @@ const About = () => {
           <p>This is a fictional store, and none of the products displayed here exist.</p>
           <p>Products information and images: <a href="https://dummyjson.com/docs" target='_blank'>DummyJSON API.</a></p>
           <p>Other photos on this app were taken from <a href="https://www.pexels.com/" target='_blank'>Pexels</a> and <a href="https://unsplash.com/" target='_blank'>Unshplash.</a></p>
-          <p className='code'>Source code: <a href="https://github.com/leoshliak/react-shoping-cart" target='_blank'><i class="fa-brands fa-github"></i></a></p>
+          <p className='code'>Source code: <a href="https://github.com/leoshliak/react-shoping-cart" target='_blank'><i className="fa-brands fa-github"></i></a></p>
          </div>
          <Footer />
     </div>
