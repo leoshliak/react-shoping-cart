@@ -35,5 +35,7 @@
 
 
 **For smartphones:**
+
+
 ![image](https://github.com/user-attachments/assets/ba4cd9b2-2f21-43f2-b77e-6e8d2a85bdb9)
 
