@@ -19,6 +19,7 @@ Shop page with: cart:
 
 
 Contact page: 
+
 ![image](https://github.com/user-attachments/assets/e0d549b0-0155-407e-b8e8-de9cc68a71ed)
 
 
