@@ -1,4 +1,4 @@
-Home page view:
+<bold>Home page view:<bold>
 
 ![image](https://github.com/user-attachments/assets/1c62d0be-8be6-4b9a-a935-9010fd3b5937)
 
