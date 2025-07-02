@@ -1,4 +1,5 @@
 🛍️ **React Shopping Cart — VogueNest**
+
 A stylish front-end demo for a fictional clothing and luxury apparel store. VogueNest lets you browse trendy outfits, view product details, and manage a shopping cart — all built as a Single Page Application (SPA) with smooth routing.
 
 🧩 **Tech Stack**
@@ -10,6 +11,7 @@ CSS
 React
 
 🎯 **Purpose**
+
 This project was built as part of my learning journey with The Odin Project. It helped me practice building a SPA with React, implementing routing, component design, and managing a shopping cart’s state.
 
 **Home page view:**
