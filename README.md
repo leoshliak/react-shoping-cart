@@ -2,6 +2,7 @@
 A stylish front-end demo for a fictional clothing and luxury apparel store. VogueNest lets you browse trendy outfits, view product details, and manage a shopping cart — all built as a Single Page Application (SPA) with smooth routing.
 
 🧩 **Tech Stack**
+
 HTML
 
 CSS
